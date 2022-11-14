@@ -23,7 +23,6 @@ public class Receta {
     @OneToOne
     @JoinColumn(name = "tiempo_comida")
     TiempoComida tiempoComida;
-
     @OneToMany(mappedBy = "receta")
     Set<CantidadDeIngredienteEnReceta> cantidadDeIngrediente;
     

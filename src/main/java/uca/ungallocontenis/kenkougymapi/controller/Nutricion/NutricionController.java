@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import uca.ungallocontenis.kenkougymapi.entity.Nutricion.TablaNutricional;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.EstiloAlimenticioRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.IngredienteRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.PlanAlimenticioRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.RecetaRepository;
-import uca.ungallocontenis.kenkougymapi.repository.Nutricion.TiempoComidaRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Nutricion.TablaNutricionalRepository;
+import uca.ungallocontenis.kenkougymapi.repository.Nutricion.TiempoComidaRepository;
 
 
 @RestController

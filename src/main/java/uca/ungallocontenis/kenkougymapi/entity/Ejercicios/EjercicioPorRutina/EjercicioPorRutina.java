@@ -1,7 +1,6 @@
 package uca.ungallocontenis.kenkougymapi.entity.Ejercicios.EjercicioPorRutina;
 
 import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import uca.ungallocontenis.kenkougymapi.entity.Ejercicios.EjercicioPorMusculo;
 import uca.ungallocontenis.kenkougymapi.entity.Ejercicios.Rutina;
@@ -11,14 +10,13 @@ import uca.ungallocontenis.kenkougymapi.entity.Ejercicios.Rutina;
 public class EjercicioPorRutina {
     @EmbeddedId
     EjercicioPorRutinaKey ejercicioPorRutinaId;
-    @JsonIgnore
     @ManyToOne
-    @MapsId("idRutina")
-    @JoinColumn(name = "id")
+    @MapsId("RutinaId")
+    @JoinColumn(name = "idRutina")
     Rutina rutina;
     @ManyToOne
-    @MapsId("idEMusculo")
-    @JoinColumn(name = "id")
+    @MapsId("EMusculoId")
+    @JoinColumn(name = "idEMusculo")
     EjercicioPorMusculo ejercicioPorMusculo;
 
     public EjercicioPorRutinaKey getEjercicioPorRutinaId() {

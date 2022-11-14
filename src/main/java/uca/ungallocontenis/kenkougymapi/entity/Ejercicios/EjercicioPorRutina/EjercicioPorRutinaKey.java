@@ -20,7 +20,18 @@ public class EjercicioPorRutinaKey implements Serializable{
     public int getEjercicioPorMusculoId() {
         return ejercicioPorMusculoId;
     }
+
     public void setEjercicioPorMusculoId(int ejercicioPorMusculoId) {
         this.ejercicioPorMusculoId = ejercicioPorMusculoId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return String.valueOf(rutinaId).concat(String.valueOf(ejercicioPorMusculoId)).hashCode();
     }
 }

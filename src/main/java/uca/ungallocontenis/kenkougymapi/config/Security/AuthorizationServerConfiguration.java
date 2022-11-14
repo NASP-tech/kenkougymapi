@@ -83,7 +83,9 @@ public class AuthorizationServerConfiguration {
     @Order(Ordered.HIGHEST_PRECEDENCE) // First bean to initialize
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // Default configuration which will secure all requests
-        http.cors().and().authorizeRequests()
+        http.cors().and()
+        .csrf().disable()
+        .authorizeRequests()
         // Any request sent to the API
         .anyRequest().permitAll()
         // Should be through an authenticated user

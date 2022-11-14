@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import uca.ungallocontenis.kenkougymapi.entity.Nutricion.PlanAlimenticio;
 
 public interface PlanAlimenticioRepository extends JpaRepository<PlanAlimenticio, Long> {
+    public PlanAlimenticio findById(int id);
     public PlanAlimenticio findByNombre(String nombre);
     public List<PlanAlimenticio> findByNombreIsContainingIgnoringCase(String nombre);
     public List<PlanAlimenticio> findByObjetivo_Id(int objetivoId);

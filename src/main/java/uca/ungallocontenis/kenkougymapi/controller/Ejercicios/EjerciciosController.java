@@ -15,6 +15,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import uca.ungallocontenis.kenkougymapi.repository.Ejercicios.TipoRutinaRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Ejercicios.EjercicioRepository;
 import uca.ungallocontenis.kenkougymapi.repository.Ejercicios.EjerciciosPorMusculo;
+import uca.ungallocontenis.kenkougymapi.repository.Ejercicios.EjercicioPorRutinas;
+import uca.ungallocontenis.kenkougymapi.repository.Ejercicios.RutinaRepository;
 
 @RestController
 @RequestMapping("/ejercicios")
@@ -26,6 +28,10 @@ public class EjerciciosController {
     private EjercicioRepository ejercicioRepository;
     @Autowired
     private EjerciciosPorMusculo ejerciciosPorMusculo;
+    @Autowired
+    private EjercicioPorRutinas ejerciciosPorRutinas;
+    @Autowired
+    private RutinaRepository rutinaRepository;
     
     private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(EjerciciosController.class);
 
@@ -143,20 +149,76 @@ public class EjerciciosController {
 
         return json;
     }
-    /*
-    @GetMapping("/tipoRutinaPorIdEn")
-    public String tipoRutinaPorIdEn(@RequestParam List<Integer> id) {
+    /* Ejercicio Por Rutina */
+    @GetMapping("/ejercicioPorRutinaAll")
+    public String ejercicioPorRutinaAll() {
         String json = "[]";
         ObjectMapper mapper = new ObjectMapper();
         
         try {
-            json = mapper.writeValueAsString(tipoRutinaRepository.findByIdIsIn(id));
+            json = mapper.writeValueAsString(ejerciciosPorRutinas.findAll());
         } catch (JsonProcessingException e) {
-            LOG.error("Error al parsear Tipo de Rutina por ID", e);
+            LOG.error("Error al parsear Ejercicio por ID", e);
         }
 
         return json;
     }
-    */
+    @GetMapping("/ejercicioPorRutinaPorId")
+    public String ejercicioPorRutinaPorId(@RequestParam Integer idRutina) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(ejerciciosPorRutinas.findByRutinaId(idRutina));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear Ejercicios por ID", e);
+        }
+
+        return json;
+    }
+
+    /* Rutina */
+
+    @GetMapping("/rutinaPorNombre")
+    public String rutinaPorNombre(@RequestParam String nombre) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(rutinaRepository.findByNombre(nombre));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear Ejercicio", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/rutinaPorNombreEn")
+    public String rutinaPorNombreEn(@RequestParam String nombre) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(rutinaRepository.findByNombreIsContainingIgnoringCase(nombre));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear Ejercicio", e);
+        }
+
+        return json;
+    }
+
+    @GetMapping("/rutinaPorId")
+    public String rutinaPorId(@RequestParam Integer id) {
+        String json = "[]";
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            json = mapper.writeValueAsString(rutinaRepository.findById(id));
+        } catch (JsonProcessingException e) {
+            LOG.error("Error al parsear Ejercicioa por ID", e);
+        }
+
+        return json;
+    }
 }
 

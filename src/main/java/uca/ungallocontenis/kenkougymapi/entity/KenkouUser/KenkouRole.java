@@ -1,11 +1,8 @@
 package uca.ungallocontenis.kenkougymapi.entity.KenkouUser;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity(name = "KenkouRole")
@@ -17,8 +14,8 @@ public class KenkouRole {
     private String roleCode;
     @Column(name = "role_name")
     private String roleName;
-    @ManyToMany(mappedBy = "usersRoles")
-    private List<KenkouUser> usersByRole;
+    // @ManyToMany(mappedBy = "usersRoles")
+    // private List<KenkouUser> usersByRole;
 
     public String getRoleCode() {
         return roleCode;
@@ -36,13 +33,13 @@ public class KenkouRole {
         this.roleName = roleName;
     }
 
-    public List<KenkouUser> getUsersByRole() {
-        return usersByRole;
-    }
+    // public List<KenkouUser> getUsersByRole() {
+    //     return usersByRole;
+    // }
 
-    public void setUsersByRole(List<KenkouUser> usersByRole) {
-        this.usersByRole = usersByRole;
-    }
+    // public void setUsersByRole(List<KenkouUser> usersByRole) {
+    //     this.usersByRole = usersByRole;
+    // }
 
     @Override
     public String toString() {

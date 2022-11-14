@@ -29,7 +29,7 @@ public class AuthenticationController {
         if(principal == null)
             return "Credentials not provided!";
         else
-            return kenkouUserService.getUserDetails(principal.getName());
+            return kenkouUserService.obtenerUsuario(principal.getName()).toString();
     }
 
     @GetMapping("/createUser")

@@ -8,31 +8,49 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Rutina {
     @Id
     public int id;
-    @JsonIgnore
-    @OneToOne
-    @MapsId("idTRutina")
-    @JoinColumn(name = "id")
-    TipoRutina tipoRutina;
     public String nombre;
-    public int series;
-    public int repeticiones;
-    public int pesoRecomendado;
-    public String tiempoRecomendado;
-    public String vecesXsemana;
-    public String otrasIndicaciones;
+    public String imagen;
+    public String dificultad;
+    public String objetivo;
+    public String musculo_a_trabajar;
+    public String instrucciones;
 
+   
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    public String getDificultad() {
+        return dificultad;
+    }
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
+    }
+    public String getObjetivo() {
+        return objetivo;
+    }
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+    public String getMusculo_a_trabajar() {
+        return musculo_a_trabajar;
+    }
+    public void setMusculo_a_trabajar(String musculo_a_trabajar) {
+        this.musculo_a_trabajar = musculo_a_trabajar;
+    }
+    public String getInstrucciones() {
+        return instrucciones;
+    }
+    public void setInstrucciones(String instrucciones) {
+        this.instrucciones = instrucciones;
+    }
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
-    }
-
-    public TipoRutina getTipoRutina() {
-        return tipoRutina;
-    }
-    public void setTipoRutina(TipoRutina tipoRutina) {
-        this.tipoRutina = tipoRutina;
     }
 
     public String getNombre() {
@@ -42,52 +60,9 @@ public class Rutina {
         this.nombre = nombre;
     }
 
-    public int getSeries() {
-        return series;
-    }
-    public void setSeries(int series) {
-        this.series = series;
-    }
-
-    public int getRepeticiones() {
-        return repeticiones;
-    }
-    public void setRepeticiones(int repeticiones) {
-        this.repeticiones = repeticiones;
-    }
-
-    public int getPesoRecomendado() {
-        return pesoRecomendado;
-    }
-    public void setPesoRecomendado(int pesoRecomendado) {
-        this.pesoRecomendado = pesoRecomendado;
-    }
-
-    public String getTiempoRecomendado() {
-        return tiempoRecomendado;
-    }
-    public void setTiempoRecomendado(String tiempoRecomendado) {
-        this.tiempoRecomendado = tiempoRecomendado;
-    }
-
-    public String getVecesXsemana() {
-        return vecesXsemana;
-    }
-    public void setVecesXsemana(String vecesXsemana) {
-        this.vecesXsemana = vecesXsemana;
-    }
-
-    public String getOtrasIndicaciones() {
-        return otrasIndicaciones;
-    }
-    public void setOtrasIndicaciones(String otrasIndicaciones) {
-        this.otrasIndicaciones = otrasIndicaciones;
-    }
-
     @Override
     public String toString() {
-        return "rutina [nombre=" + nombre + ", series=" + series + ", repeticiones=" + repeticiones + 
-        ", pesoRecomendado=" + pesoRecomendado + ", tiempoRecomendado=" + tiempoRecomendado + 
-        ", vecesXsemana=" + vecesXsemana + ", otrasIndicaciones=" + otrasIndicaciones + "]";
+        return "rutina [nombre=" + nombre + ", imagen=" + imagen + ", dificultad=" + dificultad + 
+        ", objetivo=" + objetivo + ", musculo_a_trabajar=" + musculo_a_trabajar + ", instrucciones=" + instrucciones +"]";
     }
 }

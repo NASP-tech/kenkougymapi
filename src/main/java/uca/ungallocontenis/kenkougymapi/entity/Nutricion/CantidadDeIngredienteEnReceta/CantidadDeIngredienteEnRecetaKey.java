@@ -27,4 +27,14 @@ public class CantidadDeIngredienteEnRecetaKey implements Serializable {
     public void setIngredienteId(int ingredienteId) {
         this.ingredienteId = ingredienteId;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return String.valueOf(recetaId).concat(String.valueOf(ingredienteId)).hashCode();
+    }
 }
